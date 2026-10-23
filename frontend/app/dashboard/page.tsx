@@ -225,14 +225,18 @@ export default function DashboardPage() {
                     alertCount ? "border-red-500/30" : "border-[var(--border)]"
                   }`}
                 >
+                  <Link
+                    href={`/dashboard/${group.slug}`}
+                    aria-label={group.name}
+                    className="absolute inset-0 rounded-xl focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-amber-500"
+                  />
                   <div className="flex items-start justify-between gap-2">
-                    <Link
-                      href={`/dashboard/${group.slug}`}
-                      className="text-sm font-semibold tracking-[-0.02em] text-[var(--text-primary)] hover:text-amber-500 transition line-clamp-1"
+                    <span
+                      className="text-sm font-semibold tracking-[-0.02em] text-[var(--text-primary)] group-hover:text-amber-500 transition line-clamp-1"
                     >
                       {group.name}
-                    </Link>
-                    <div className="flex items-center gap-1.5 shrink-0">
+                    </span>
+                    <div className="relative flex items-center gap-1.5 shrink-0">
                       <button
                         type="button"
                         title={`Delete ${group.name}`}
@@ -259,7 +263,7 @@ export default function DashboardPage() {
                     </div>
                   </div>
 
-                  <Link href={`/dashboard/${group.slug}`} className="mt-auto block pt-3">
+                  <div className="mt-auto block pt-3">
                     <div className="flex items-end justify-between border-t border-[var(--border)] pt-3">
                       <div>
                         <p className="eyebrow">Active sensors</p>
@@ -279,7 +283,7 @@ export default function DashboardPage() {
                         </p>
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 </div>
               );
             })}
